@@ -1,0 +1,73 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Laptops</h1>
+    <p class="lead text-muted mb-0"> All the best laptops </p>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/" routerLinkActive="active">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a routerLink="/Products" routerLinkActive="active">Products</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-3">
+      <div class="card bg-light mb-3">
+        <div class="card-header bg-secondary text-white text-uppercase">
+          <i class="fa fa-list"></i> Categories</div>
+        <ul class="list-group category_block">
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/products" >All</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/products/laptops" routerLinkActive="active">Laptops</a>
+            <li class="list-group-item">
+              <a class="nav-link" routerLink="/Products/Smartphones"> Smartphones</a>
+            </li>
+            <li class="list-group-item">
+              <a class="nav-link" routerLink="/Products/Tablets">Tablets</a>
+            </li>
+            <li class="list-group-item">
+              <a class="nav-link" routerLink="/products/others">Others</a>
+            </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-stretch" *ngFor="let p of products">
+
+          <div class="card h-100">
+            <img class="card-img-top" src="/images/laptops/lap{{ p.productId }}.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"> {{ p.productName }} </h4>
+              <p class="card-text"> {{ p.productDescription }} </p>
+              <div class="row">
+                <div class="col">
+                  <p class="btn btn-danger btn-block"> {{ p.productPrice }} $</p>
+                </div>
+                <div class="col">
+                  <a [routerLink]="['/product',p.productId]" class="btn btn-success btn-block">Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
