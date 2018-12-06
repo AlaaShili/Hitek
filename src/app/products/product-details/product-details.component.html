@@ -1,54 +1,73 @@
+<div class="card bg-light mt-3 mx-3 shadow pb-3">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="product-image">
+          <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+            <img src="/images/laptops/lap1.jpg" alt="Pic" width="100%" class="img-fluid rounded">
+          </div>
+          <div class="" style="margin-top:15px">
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Price</h6>
+                </div>
+                <span class="text-muted" style="color:crimson !important">${{product?.productPrice}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Brand</h6>
+                </div>
+                <span class="text-muted" style="color:crimson !important">{{product?.productBrand}}</span>
+              </li>
+            </ul>
 
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="product-image">
-        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
-          <img src="/images/laptops/lap1.jpg" alt="Pic" width="100%" class="img-fluid rounded">
-        </div>
-        <div class="" style="margin-top:15px">
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product Price</h6>
-              </div>
-              <span class="text-muted" style="color:crimson !important"> {{product?.productPrice}} $</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product Seller</h6>
-              </div>
-              <span class="text-muted" style="color:crimson !important">Apple</span>
-            </li>
-          </ul>
-          <div class="btn-toolbar">
-            <button class="btn btn-primary">Add to Cart</button>
-            <button class="btn btn-primary" routerLink="/products" role="button">Return to Products</button>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-8">
-      <div class="product-detail">
-        <h5 class="product-head">Product Details</h5>
-        <table class="table" cellspacing="0" style="max-height: 28px">
-          <tbody>
-            <tr>
-              <th scope="row">Product Name</th>
-              <td>{{product?.productName}}</td>
-            </tr>
-            <tr>
-              <th scope="row">Product Description</th>
-              <td>{{product?.productDescription}}</td>
-            </tr>
-            <tr>
-              <th scope="row">Product Category</th>
-              <td>{{product?.productCategory}}</td>
-            </tr>
+      <div class="col-sm-8">
+        <div class="product-detail">
+          <h5 class="product-head">Details</h5>
+          <table class="table" cellspacing="0" style="max-height: 28px">
+            <tbody>
+              <tr>
+                <th scope="row">Name</th>
+                <td>{{product?.productName}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Description</th>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit minus eveniet unde impedit distinctio consectetur,
+                  quia, quidem rem ipsam error fugit nulla architecto eum est nam magnam delectus odit perferendis.{{product?.productDescription}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Category</th>
+                <td>{{product?.productCategory}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Availability</th>
+                <ng-container *ngIf="product?.availability ; then instock else outofstock"></ng-container>
+                <ng-template #instock>
+                  <td>
+                    <h5 class="text-success">
+                      <i class="fa fa-check mr-1"></i>In stock</h5>
+                  </td>
+                </ng-template>
+                <ng-template #outofstock>
+                  <td>
+                    <h5 class="text-danger">
+                      <i class="fa fa-times mr-1"></i>Out of stock</h5>
+                  </td>
+                </ng-template>
+              </tr>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+          <div class="d-flex flex-row justify-content-center">
+            <button class="btn btn-primary mr-2" (click)="addToCart(product?.productId)">Add to Cart</button>
+            <button class="btn btn-primary " routerLink="/products" role="button">Return to Products</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

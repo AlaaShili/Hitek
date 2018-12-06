@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
+ 
+  public cartNumber:number=0;
+  
 
-  constructor() { }
+  constructor(private productService: ProductService,private cookieService: CookieService) { }
 
   ngOnInit() {
+    this.cartNumber=this.cookieService.get('Hitek').split(',').length;
+    this.productService.currentCartNumber.subscribe(cartNumber => {this.cartNumber = cartNumber},error=>console.log(error));
   }
 
 }

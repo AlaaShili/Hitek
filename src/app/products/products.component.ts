@@ -9,10 +9,21 @@ import { ProductService } from 'src/app/product.service';
 })
 export class ProductsComponent implements OnInit {
   public products: any;
-
+  public title: string;
   constructor(private productService: ProductService ) { }
 
   ngOnInit() {
-    this.productService.getAllProducts().subscribe((response) => {this.products = response ;  console.log(this.products);});
+    this.getAll();
   }
+
+  getAll(){
+    this.productService.getAllProducts().subscribe((response) => {this.products = response ;  console.log(this.products);});
+    this.title='Product';
+  }
+
+  public getByCategory(categoryName: string){
+    this.productService.getProductByCategory(categoryName).subscribe((response) => {this.products = response ;  console.log(this.products);});
+    this.title=categoryName;
+  }
+  
 }

@@ -9,9 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { LaptopsComponent } from './products/laptops/laptops.component';
-import { SmartphonesComponent } from './products/smartphones/smartphones.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { CookieService } from 'ngx-cookie-service';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
     AppHeaderComponent,
     AppFooterComponent,
     HomePageComponent,
-    LaptopsComponent,
-    SmartphonesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +31,11 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
       { path: '', component: HomePageComponent},
       { path: 'contact-page', component: ContactPageComponent},
       { path: 'products', component: ProductsComponent},
-      { path: 'products/laptops', component: LaptopsComponent},
-      { path: 'product/:productId', component: ProductDetailsComponent}
+      { path: 'product/:productId', component: ProductDetailsComponent},
+      { path: 'cart', component: CartComponent},
     ])
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

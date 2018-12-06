@@ -1,0 +1,23 @@
+<div class="card bg-light mt-3 mx-3 shadow pb-3">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productArray; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{p?.productName}}</td>
+        <td>${{p?.productPrice}}</td>
+        <td><button type="button" class="btn btn-danger rbutton"><i class="fa fa-trash" aria-hidden="true" (click)="removeCart(p?.productId)"></i></button></td>
+      </tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td><button type="button" class="btn btn-primary" >Confirm</button></td>
+    </tbody>
+  </table>
+  </div>
