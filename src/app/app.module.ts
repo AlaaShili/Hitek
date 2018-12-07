@@ -12,6 +12,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './admin/admin.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,17 +24,20 @@ import { CartComponent } from './cart/cart.component';
     AppFooterComponent,
     HomePageComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomePageComponent},
       { path: 'contact-page', component: ContactPageComponent},
       { path: 'products', component: ProductsComponent},
       { path: 'product/:productId', component: ProductDetailsComponent},
       { path: 'cart', component: CartComponent},
+      { path: 'admin', component: AdminComponent},
     ])
   ],
   providers: [CookieService],

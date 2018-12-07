@@ -15,7 +15,13 @@ export class AppHeaderComponent implements OnInit {
   constructor(private productService: ProductService,private cookieService: CookieService) { }
 
   ngOnInit() {
-    this.cartNumber=this.cookieService.get('Hitek').split(',').length;
+    if (this.cookieService.get('Hitek')==''){
+      this.cartNumber=0;
+    }
+    else{
+      this.cartNumber=this.cookieService.get('Hitek').split(',').length;
+    }
+    
     this.productService.currentCartNumber.subscribe(cartNumber => {this.cartNumber = cartNumber},error=>console.log(error));
   }
 

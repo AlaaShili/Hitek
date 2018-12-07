@@ -54,13 +54,30 @@
 <div class="container marketing">
 
   <div class="row">
-    <div class="col-lg-4">
-      <img class="rounded-circle" src="/images/laptops/lap2.jpg" alt="Generic placeholder image" width="140" height="140">
-      <h2>Title</h2>
-      <p>Description ...</p>
-      <p>
-        <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-      </p>
+    <div class="col-lg-4 " *ngFor="let p of topProducts">
+      <div class="card h-80 mb-5 shadow ">
+        <img class="card-img-top" src="/images/laptops/lap{{ p?.productId }}.jpg" alt="Card image cap">
+        <div class="card-body text-center">
+          <h4 class="card-title "> {{ p.productName }} </h4>
+          
+            
+              <ng-container *ngIf="p?.availability ; then instock else outofstock"></ng-container>
+              <ng-template #instock>
+                  
+                <h5 class="text-success"><i class="fa fa-check mr-1"></i>In stock</h5>
+                
+              </ng-template>
+              <ng-template #outofstock>
+                 
+                <h5 class="text-danger"><i class="fa fa-times mr-1"></i>Out of stock</h5>
+               
+              </ng-template>  
+        
+  
+             <h4> <font color="red">${{ p.productPrice }} </font></h4> 
+            <a [routerLink]="['/product',p?.productId]" class="btn btn-info btn-block mt-auto">More Details</a>
+        </div>
+      </div>
     </div>
 
   </div>

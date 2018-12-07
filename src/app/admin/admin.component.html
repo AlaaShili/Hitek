@@ -1,0 +1,98 @@
+<h5 class="mt-3 ml-5">List of Products</h5>
+<div class="card bg-light mt-3 mx-3 shadow pb-3">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products; let i = index">
+        <th scope="row">{{p.productId}}</th>
+        <td>{{p?.productName}}</td>
+        <td>
+
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger rbutton" (click)="deleteProduct(p?.productId)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+
+      </tr>
+      <th scope="row"></th>
+      <td>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal"> Add a new Product </button>
+      </td>
+      <td></td>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+
+          <h1>Add New Product</h1>
+          <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+            <div class="form-group">
+              <label for="id">Name</label>
+              <input type="text" class="form-control" id="name" required [(ngModel)]="product.productName" name="name" #name="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="id">Price</label>
+              <input type="text" class="form-control" id="Price" required [(ngModel)]="product.productPrice" name="Price" #name="ngModel">
+            </div>
+            
+            <div class="form-group">
+              <label for="Price">Category</label>
+              <input type="text" class="form-control" id="Category" required [(ngModel)]="product.productCategory" name="Category" #name="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="id">Brand</label>
+              <input type="text" class="form-control" id="Brand" required [(ngModel)]="product.productBrand" name="Brand" #name="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="id">Description</label>
+              <input type="text" class="form-control" id="Description" required [(ngModel)]="product.productDescription" name="Description" #name="ngModel">
+            </div>
+
+            <div class="form-group">
+              <label for="id">Image</label>
+              <input type="text" class="form-control" id="Image" required [(ngModel)]="product.productImage" name="Image" #name="ngModel">
+            </div>
+
+            
+            <button type="submit" class="btn btn-success ml-5 mr-5">Add Product</button>
+            <button type="button" class="btn btn-default ml-5" (click)="productForm.reset()">Reset</button>
+          </form>
+
+
+
+
+        </div>
+      </div>
+
+    
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
