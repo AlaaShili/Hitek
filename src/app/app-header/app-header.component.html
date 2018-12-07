@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+  <!-- <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
      <div class="container">
        <a class="navbar-brand" routerLink="">Hi-Tek</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
@@ -40,4 +40,71 @@
          </form>
        </div>
      </div>
-   </nav>
+   </nav> -->
+
+
+
+<div class="sticky-top">
+  <header class="topbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="social-network">
+              <li><a class="waves-effect waves-dark" href=""><i class="fa fa-facebook"></i></a></li>
+              <li><a class="waves-effect waves-dark" href=""><i class="fa fa-twitter"></i></a></li>
+              <li><a class="waves-effect waves-dark" href=""><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="waves-effect waves-dark" href=""><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"> HI-TEK.COM</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink=""><strong>Home</strong>
+              
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-page"><strong>Contact</strong></a>
+          </li>
+
+         <li class="nav-item">
+            <a class="nav-link" routerLink="/products"><strong>Products</strong></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin"><strong>My Account</strong></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart"><span class="badge badge-danger ml-2" > {{cartNumber}}</span></i></a>
+          </li>
+
+          <li class="nav-item">
+          <div class="container mt-1">
+            <div class="d-flex justify-content-center ">
+              <div class="searchbar">
+                <input class="search_input ml-2" type="text" name="" placeholder=" Search...">
+                <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

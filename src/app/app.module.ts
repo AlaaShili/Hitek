@@ -38,7 +38,7 @@ import { FormsModule }   from '@angular/forms';
       { path: 'product/:productId', component: ProductDetailsComponent},
       { path: 'cart', component: CartComponent},
       { path: 'admin', component: AdminComponent},
-    ])
+    ],{scrollPositionRestoration: 'enabled'})
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

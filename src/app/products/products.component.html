@@ -1,9 +1,4 @@
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">{{title}}s</h1>
-    <p class="lead text-muted mb-0"> Browse our {{title}}s </p>
-  </div>
-</section>
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -25,22 +20,22 @@
     <div class="col-12 col-sm-3">
       <div class="card bg-light mb-3">
         <div class="card-header bg-secondary text-white text-uppercase">
-          <i class="fa fa-list"></i> Categories</div>
+          <i class="fa fa-list"></i> <strong> Categories</strong></div>
         <ul class="list-group category_block">
           <li class="list-group-item">
 
-            <button class="btn btn-link" (click)="getAll()">All</button>
+            <button class="btn btn-link" (click)="getAll()"><strong>All</strong></button>
           </li>
           <li class="list-group-item">
-            <button class="btn btn-link" (click)="getByCategory('Laptop')">Laptops</button>
+            <button class="btn btn-link" (click)="getByCategory('Laptop')"><strong>Laptops</strong></button>
             <li class="list-group-item">
-              <button class="btn btn-link" (click)="getByCategory('Smartphone')">Smartphones</button>
+              <button class="btn btn-link" (click)="getByCategory('Smartphone')"><strong>Smartphones</strong></button>
             </li>
             <li class="list-group-item">
-              <button class="btn btn-link" (click)="getByCategory('Tablet')">Tablets</button>
+              <button class="btn btn-link" (click)="getByCategory('Tablet')"><strong>Tablets</strong></button>
             </li>
             <li class="list-group-item">
-              <button class="btn btn-link" (click)="getByCategory('Other')">Others</button>
+              <button class="btn btn-link" (click)="getByCategory('Other')"><strong>Others</strong></button>
             </li>
 
         </ul>
@@ -51,7 +46,7 @@
         <div class="col-lg-4 d-flex align-items-stretch" *ngFor="let p of products">
 
           <div class="card h-80 mb-5 shadow ">
-            <img class="card-img-top" src="/images/laptops/lap{{ p.productId }}.jpg" alt="Card image cap">
+            <img class="card-img-top" src="/images/Products/{{ p?.productImage }}.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h4 class="card-title "> {{ p.productName }} </h4>
               
