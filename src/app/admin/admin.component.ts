@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   }
 
   getAllProd(){
-    this.productService.getAllProducts().subscribe((response) => {this.products = response ;  console.log(this.products);});
+    this.productService.getAllProducts().subscribe((response) => {this.products = response ; });
   }
 
 
